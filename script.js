@@ -69,6 +69,22 @@ const chaTotal = document.getElementById("total_cha")
 const chaRank = document.getElementById("rank_cha")
 const chaCost= document.getElementById("point_cost_cha")
 
+const hitPoints = document.getElementById("hit_points")
+const magicPoints = document.getElementById("magic_points")
+
+function updateSecondStats(){
+    hitPoints.textContent = (
+        (parseInt(strAttribute.value)
+        +parseInt(dexAttribute.value))*.5
+        +parseInt(conAttribute.value)*3
+    )
+    magicPoints.textContent = (
+        parseInt(intAttribute.value)
+        +parseInt(wisAttribute.value)
+        +parseInt(chaAttribute.value)
+    )
+}
+
 function increment(attribute, total, rank, cost){
     let currentValue = parseInt(attribute.value)
     let index = values.indexOf(currentValue)
@@ -86,12 +102,12 @@ function increment(attribute, total, rank, cost){
         Points.used += changeCost
         usedPoints.textContent = Points.used
     }
+    updateSecondStats()
 }
 
 function decrement(attribute, total, rank, cost){
     let currentValue = parseInt(attribute.value)
     let index = values.indexOf(currentValue)
-    console.log(index)
     if(index < 1){
         return
     }
@@ -104,6 +120,7 @@ function decrement(attribute, total, rank, cost){
         Points.used -= changeCost
         usedPoints.textContent = Points.used
     }
+    updateSecondStats()
 }
 
 
@@ -225,4 +242,36 @@ document.getElementById("reset").addEventListener("pointerdown", (e)=>{
     Points.used = 0
 
     usedPoints.textContent = Points.used
+})
+
+const secStatCon = document.querySelector("#secondary_stats div")
+
+secStatCon.children[0].addEventListener("pointerover", (e)=>{
+    let tooltips = document.querySelectorAll('.tooltip')
+    if(tooltips.length == 1)
+        tooltips[0].remove()
+    const div = document.createElement('div')
+    div.className = "tooltip"
+    div.innerHTML = `<p>Tooltip</p>`
+    +`<p>Hit Points are calculated as follows:<br>`
+    +`<span class="tooltip-font">(Strength + Dexterity) x 1/2 + Constitution x 3</span></p>`
+    document.querySelector(".app").appendChild(div)
+    div.addEventListener("pointerleave", (e)=>{
+        e.target.remove()
+    })
+})
+
+secStatCon.children[1].addEventListener("pointerover", (e)=>{
+    let tooltips = document.querySelectorAll('.tooltip')
+    if(tooltips.length == 1)
+        tooltips[0].remove()
+    const div = document.createElement('div')
+    div.className = "tooltip"
+    div.innerHTML = `<p>Tooltip</p>`
+    +`<p>Magic Points are calculated as follows:<br>`
+    +`<span class="tooltip-font">Intelligence + Wisdom + Charisma</span></p>`
+    document.querySelector(".app").appendChild(div)
+    div.addEventListener("pointerleave", (e)=>{
+        e.target.remove()
+    })
 })
