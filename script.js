@@ -2,7 +2,7 @@
 const attrModifier = document.querySelectorAll(".attribute-modifier")
 const usedPoints = document.getElementById('used_points')
 
-const Points = {used:0, max:29}
+const Points = {used:0, max:27}
 
 const values = [
     4,
