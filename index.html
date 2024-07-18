@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div class="app">
+        <table class="selection">
+            <thead>
+                <tr>
+                    <th style="width:25%">Attribute</th>
+                    <th style="width:25%">Attribute Score</th>
+                    <th style="width:5%"></th>
+                    <th style="width:10%">Score</th>
+                    <th style="width:20%">Rank</th>
+                    <th style="width:15%">Point Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="attribute-odd">
+                    <td>Strength</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Str" name="Attribute_Str" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Str"></button>
+                                <button class="down" onclick="" value="Attribute_Str"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_str">4</span></td>
+                    <td class="rank"><span id="rank_str">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_str">0</span></td>
+                </tr>
+                <tr class="attribute-even">
+                    <td>Dexterity</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Dex" name="Attribute_Dex" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Dex"></button>
+                                <button class="down" onclick="" value="Attribute_Dex"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_dex">4</span></td>
+                    <td class="rank"><span id="rank_dex">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_dex">0</span></td>
+                </tr>
+                <tr class="attribute-odd">
+                    <td>Constitution</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Con" name="Attribute_Con" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Con"></button>
+                                <button class="down" onclick="" value="Attribute_Con"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_con">4</span></td>
+                    <td class="rank"><span id="rank_con">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_con">0</span></td>
+                </tr>
+                <tr class="attribute-even">
+                    <td>Intelligence</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Int" name="Attribute_Int" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Int"></button>
+                                <button class="down" onclick="" value="Attribute_Int"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_int">4</span></td>
+                    <td class="rank"><span id="rank_int">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_int">0</span></td>
+                </tr>
+                <tr class="attribute-odd">
+                    <td>Wisdom</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Wis" name="Attribute_Wis" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Wis"></button>
+                                <button class="down" onclick="" value="Attribute_Wis"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_wis">4</span></td>
+                    <td class="rank"><span id="rank_wis">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_wis">0</span></td>
+                </tr>
+                <tr class="attribute-even">
+                    <td>Charisma</td>
+                    <td>
+                        <div class="attribute-modifier">
+                            <input type="number" id="Attribute_Cha" name="Attribute_Cha" value="4" min="4" max="30" readonly="Readonly" onchange="getTotal()">
+                            <div class="attribute-buttons">
+                                <button class="up" onclick="" value="Attribute_Cha"></button>
+                                <button class="down" onclick="" value="Attribute_Cha"></button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>=</td>
+                    <td class="total"><span id="total_cha">4</span></td>
+                    <td class="rank"><span id="rank_cha">Typical</span></td>
+                    <td class="point-cost"><span id="point_cost_cha">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="points_tracker">
+            <button id="reset">Reset</button>
+            <span>Total Points</span>
+            <div><span id="used_points">0</span> / <span>29</span></div>
+        </div>
+    </div>
+</body>
+</html>
