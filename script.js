@@ -5,7 +5,7 @@ const usedPoints = document.getElementById('used_points')
 const Points = {used:0, max:27}
 
 const values = [
-    4,
+    5,
     6,
     8,
     10,
@@ -16,7 +16,7 @@ const values = [
 ]
 
 const ranks = {
-    4: {title: "Typical", value:4, Cost:0},
+    5: {title: "Typical", value:5, Cost:0},
     6: {title: "Typical", value:6, Cost:1},
     8: {title: "Good", value:8, Cost:1},
     10: {title: "Good", value:10, Cost:1},
@@ -24,6 +24,69 @@ const ranks = {
     20: {title: "Excellent", value:20, Cost:1},
     26: {title: "Remarkable", value:26, Cost:2},
     30: {title: "Remarkable", value:30, Cost:2}
+}
+
+function scoreToPoint(score){
+    switch(score){
+        case 1:
+        case 2:
+        case 3:
+            return {title:'Shift-0', value:0}
+        case 4:
+            return {title: 'Feeble', value: 1}
+        case 5:
+            return {title: 'Feeble', value: 2}
+        case 6:
+            return {title: 'Poor', value: 3}
+        case 7:
+            return {title: 'Poor', value: 4}
+        case 8:
+            return {title: 'Typical', value: 5}
+        case 9:
+            return {title: 'Typical', value: 6}
+        case 10:
+            return {title: 'Good', value: 8}
+        case 11:
+            return {title: 'Good', value: 10}
+        case 12:
+            return {title: 'Excellent', value: 16}
+        case 13:
+            return {title: 'Excellent', value: 20}
+        case 14:
+            return {title: 'Remarkable', value: 26}
+        case 15:
+            return {title: 'Remarkable', value: 30}
+        case 16:
+            return {title: 'Incredible', value: 36}
+        case 17:
+            return {title: 'Incredible', value: 40}
+        case 18:
+            return {title: 'Amazing', value: 46}
+        case 19:
+            return {title: 'Amazing', value: 50}
+        case 20:
+            return {title: 'Monstrous', value: 63}
+        case 21:
+            return {title: 'Monstrous', value: 75}
+        case 22:
+            return {title: 'Unearthly', value: 88}
+        case 23:
+            return {title: 'Unearthly', value: 100}
+        case 24:
+            return {title: 'Shift-X', value: 150}
+        case 25:
+            return {title: 'Shift-Y', value: 250}
+        case 26:
+            return {title: 'Shift-Z', value: 351}
+        case 27:
+            return {title: 'Shift-Z', value: 500}
+        case 28:
+            return {title: 'Class 1000', value: 1000}
+        case 29:
+            return {title: 'Class 3000', value: 3000}
+        case 30:
+            return {title: 'Class 5000', value: 5000}
+    }
 }
 
 
@@ -75,13 +138,13 @@ const magicPoints = document.getElementById("magic_points")
 function updateSecondStats(){
     hitPoints.textContent = (
         (parseInt(strAttribute.value)
-        +parseInt(dexAttribute.value))*.5
-        +parseInt(conAttribute.value)*3
+        +Math.floor(parseInt(dexAttribute.value)*.5))
+        +parseInt(conAttribute.value)*2
     )
     magicPoints.textContent = (
-        parseInt(intAttribute.value)
-        +parseInt(wisAttribute.value)
-        +parseInt(chaAttribute.value)
+        Math.floor(parseInt(intAttribute.value)/2)
+        +Math.floor((parseInt(wisAttribute.value)
+        +parseInt(chaAttribute.value))/4)
     )
 }
 
@@ -209,35 +272,35 @@ chaDown.addEventListener('pointerdown', (e)=>{return decrement(
 )})
 
 document.getElementById("reset").addEventListener("pointerdown", (e)=>{
-    strAttribute.value = ranks[4].value
-    strTotal.textContent = ranks[4].value
-    strRank.textContent = ranks[4].title
-    strCost.textContent = ranks[4].Cost
+    strAttribute.value = ranks[5].value
+    strTotal.textContent = ranks[5].value
+    strRank.textContent = ranks[5].title
+    strCost.textContent = ranks[5].Cost
     
-    dexAttribute.value = ranks[4].value
-    dexTotal.textContent = ranks[4].value
-    dexRank.textContent = ranks[4].title
-    dexCost.textContent = ranks[4].Cost
+    dexAttribute.value = ranks[5].value
+    dexTotal.textContent = ranks[5].value
+    dexRank.textContent = ranks[5].title
+    dexCost.textContent = ranks[5].Cost
 
-    conAttribute.value = ranks[4].value
-    conTotal.textContent = ranks[4].value
-    conRank.textContent = ranks[4].title
-    conCost.textContent = ranks[4].Cost
+    conAttribute.value = ranks[5].value
+    conTotal.textContent = ranks[5].value
+    conRank.textContent = ranks[5].title
+    conCost.textContent = ranks[5].Cost
 
-    intAttribute.value = ranks[4].value
-    intTotal.textContent = ranks[4].value
-    intRank.textContent = ranks[4].title
-    intCost.textContent = ranks[4].Cost
+    intAttribute.value = ranks[5].value
+    intTotal.textContent = ranks[5].value
+    intRank.textContent = ranks[5].title
+    intCost.textContent = ranks[5].Cost
 
-    wisAttribute.value = ranks[4].value
-    wisTotal.textContent = ranks[4].value
-    wisRank.textContent = ranks[4].title
-    wisCost.textContent = ranks[4].Cost
+    wisAttribute.value = ranks[5].value
+    wisTotal.textContent = ranks[5].value
+    wisRank.textContent = ranks[5].title
+    wisCost.textContent = ranks[5].Cost
 
-    chaAttribute.value = ranks[4].value
-    chaTotal.textContent = ranks[4].value
-    chaRank.textContent = ranks[4].title
-    chaCost.textContent = ranks[4].Cost
+    chaAttribute.value = ranks[5].value
+    chaTotal.textContent = ranks[5].value
+    chaRank.textContent = ranks[5].title
+    chaCost.textContent = ranks[5].Cost
 
     Points.used = 0
 
@@ -254,7 +317,7 @@ secStatCon.children[0].addEventListener("pointerover", (e)=>{
     div.className = "tooltip"
     div.innerHTML = `<p>Tooltip</p>`
     +`<p>Hit Points are calculated as follows:<br>`
-    +`<span class="tooltip-font">(Strength + Dexterity) x 1/2 + Constitution x 3</span></p>`
+    +`<span class="tooltip-font">(Strength + Dexterity/2 + Constitution x 2)</span></p>`
     document.querySelector(".app").appendChild(div)
     div.addEventListener("pointerleave", (e)=>{
         e.target.remove()
@@ -269,7 +332,7 @@ secStatCon.children[1].addEventListener("pointerover", (e)=>{
     div.className = "tooltip"
     div.innerHTML = `<p>Tooltip</p>`
     +`<p>Magic Points are calculated as follows:<br>`
-    +`<span class="tooltip-font">Intelligence + Wisdom + Charisma</span></p>`
+    +`<span class="tooltip-font">Intelligence + (Wisdom + Charisma)/2</span></p>`
     document.querySelector(".app").appendChild(div)
     div.addEventListener("pointerleave", (e)=>{
         e.target.remove()
