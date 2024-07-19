@@ -85,6 +85,7 @@ function scoreToPoint(score){
         case 29:
             return {title: 'Class 3000', value: 3000}
         case 30:
+        default:
             return {title: 'Class 5000', value: 5000}
     }
 }
@@ -134,6 +135,9 @@ const chaCost= document.getElementById("point_cost_cha")
 
 const hitPoints = document.getElementById("hit_points")
 const magicPoints = document.getElementById("magic_points")
+
+const attrInput = document.getElementById("attribute_entry")
+const attrOutput = document.getElementById("attribute_out")
 
 function updateSecondStats(){
     hitPoints.textContent = (
@@ -303,6 +307,10 @@ document.getElementById("reset").addEventListener("pointerdown", (e)=>{
     chaCost.textContent = ranks[5].Cost
 
     Points.used = 0
+    attrInput.value = "8"
+    const info = scoreToPoint(8)
+    attrOutput.children[0].textContent = `${info.title}:`
+    attrOutput.children[1].textContent = `${info.value}`
 
     usedPoints.textContent = Points.used
 })
@@ -337,4 +345,25 @@ secStatCon.children[1].addEventListener("pointerover", (e)=>{
     div.addEventListener("pointerleave", (e)=>{
         e.target.remove()
     })
+})
+
+attrInput.addEventListener("input", (e)=>{
+    const regex = /^-?[0-9]+?$/;
+    const input = e.target.value
+    if(!regex.test(input)){
+        e.target.value = ""
+        attrOutput.children[0].textContent = "Rank:"
+        attrOutput.children[1].textContent = "X"
+        return
+    }
+    const int = parseInt(input)
+    if(int < 1){
+        e.target.value = ""
+        attrOutput.children[0].textContent = "Rank:"
+        attrOutput.children[1].textContent = "X"
+        return
+    }
+    const info = scoreToPoint(int)
+    attrOutput.children[0].textContent = `${info.title}:`
+    attrOutput.children[1].textContent = `${info.value}`
 })

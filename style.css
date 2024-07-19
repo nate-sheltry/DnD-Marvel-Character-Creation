@@ -28,7 +28,7 @@
     margin:0 0 0 auto;
 }
 
-input[type=number]{
+.attribute-modifier input[type=number]{
     appearance:none;
     -webkit-appearance: none;
     -moz-appearance: textfield;
@@ -80,18 +80,32 @@ input[type=number]{
 }
 
 #secondary_stats div {
-    display:flex;
-    justify-content:space-around
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin:auto;
 }
 
 #secondary_stats div p {
     display:flex;
+    width:fit-content;
+    margin:auto;
     gap:.5em;
 }
+#tool {
+    margin-top:1em;
+    display:grid;
+    grid-template-columns:25% 25% 50%
+}
+#tool input {
+    width:3em;
+    font-size:16px;
+}
+
 
 .tooltip {
     position:absolute;
-    bottom:12.5%;
+    bottom:16%;
     font-size:14px;
     width:80%;
     background-color:rgba(50,50,50,.9);
