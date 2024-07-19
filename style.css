@@ -95,7 +95,7 @@
 #tool {
     margin-top:1em;
     display:grid;
-    grid-template-columns:25% 25% 50%
+    grid-template-columns:auto auto
 }
 #tool input {
     width:3em;
