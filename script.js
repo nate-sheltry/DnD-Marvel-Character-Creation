@@ -312,6 +312,9 @@ document.getElementById("reset").addEventListener("pointerdown", (e)=>{
     attrOutput.children[0].textContent = `${info.title}:`
     attrOutput.children[1].textContent = `${info.value}`
 
+    hitPoints.textContent = "17"
+    magicPoints.textContent = "4"
+
     usedPoints.textContent = Points.used
 })
 
