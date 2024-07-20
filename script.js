@@ -339,7 +339,7 @@ secStatCon.children[1].addEventListener("pointerover", (e)=>{
     const div = document.createElement('div')
     div.className = "tooltip"
     div.innerHTML = `<p>Tooltip</p>`
-    +`<p>Magic Points are calculated as follows:<br>`
+    +`<p>Spell Points are calculated as follows:<br>`
     +`<span class="tooltip-font">Intelligence/2 + (Wisdom + Charisma)/4</span></p>`
     document.querySelector(".app").appendChild(div)
     div.addEventListener("pointerleave", (e)=>{
