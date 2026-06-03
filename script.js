@@ -16,14 +16,14 @@ const values = [
 ]
 
 const ranks = {
-    5: {title: "Typical", value:5, Cost:0},
-    6: {title: "Typical", value:6, Cost:1},
-    8: {title: "Good", value:8, Cost:1},
-    10: {title: "Good", value:10, Cost:1},
-    16: {title: "Excellent", value:16, Cost:1},
-    20: {title: "Excellent", value:20, Cost:1},
-    26: {title: "Remarkable", value:26, Cost:2},
-    30: {title: "Remarkable", value:30, Cost:2}
+    5: {title: "Common", value:5, Cost:0},
+    6: {title: "Common", value:6, Cost:1},
+    8: {title: "Stout", value:8, Cost:1},
+    10: {title: "Stout", value:10, Cost:1},
+    16: {title: "Valiant", value:16, Cost:1},
+    20: {title: "Valiant", value:20, Cost:1},
+    26: {title: "Praised", value:26, Cost:2},
+    30: {title: "Praised", value:30, Cost:2}
 }
 
 function scoreToPoint(score){
@@ -31,62 +31,62 @@ function scoreToPoint(score){
         case 1:
         case 2:
         case 3:
-            return {title:'Shift-0', value:0}
+            return {title:'Incapable', value:0}
         case 4:
-            return {title: 'Feeble', value: 1}
+            return {title: 'Frail', value: 1}
         case 5:
-            return {title: 'Feeble', value: 2}
+            return {title: 'Frail', value: 2}
         case 6:
-            return {title: 'Poor', value: 3}
+            return {title: 'Lowly', value: 3}
         case 7:
-            return {title: 'Poor', value: 4}
+            return {title: 'Lowly', value: 4}
         case 8:
-            return {title: 'Typical', value: 5}
+            return {title: 'Common', value: 5}
         case 9:
-            return {title: 'Typical', value: 6}
+            return {title: 'Common', value: 6}
         case 10:
-            return {title: 'Good', value: 8}
+            return {title: 'Stout', value: 8}
         case 11:
-            return {title: 'Good', value: 10}
+            return {title: 'Stout', value: 10}
         case 12:
-            return {title: 'Excellent', value: 16}
+            return {title: 'Valiant', value: 16}
         case 13:
-            return {title: 'Excellent', value: 20}
+            return {title: 'Valiant', value: 20}
         case 14:
-            return {title: 'Remarkable', value: 26}
+            return {title: 'Praised', value: 26}
         case 15:
-            return {title: 'Remarkable', value: 30}
+            return {title: 'Praised', value: 30}
         case 16:
-            return {title: 'Incredible', value: 36}
+            return {title: 'Honored', value: 36}
         case 17:
-            return {title: 'Incredible', value: 40}
+            return {title: 'Honored', value: 40}
         case 18:
-            return {title: 'Amazing', value: 46}
+            return {title: 'Renowned', value: 46}
         case 19:
-            return {title: 'Amazing', value: 50}
+            return {title: 'Renowned', value: 50}
         case 20:
-            return {title: 'Monstrous', value: 63}
+            return {title: 'Mastered', value: 63}
         case 21:
-            return {title: 'Monstrous', value: 75}
+            return {title: 'Mastered', value: 75}
         case 22:
-            return {title: 'Unearthly', value: 88}
+            return {title: 'Fabled', value: 88}
         case 23:
-            return {title: 'Unearthly', value: 100}
+            return {title: 'Fabled', value: 100}
         case 24:
-            return {title: 'Shift-X', value: 150}
+            return {title: 'Exalted', value: 150}
         case 25:
-            return {title: 'Shift-Y', value: 250}
+            return {title: 'Ascendant', value: 250}
         case 26:
-            return {title: 'Shift-Z', value: 351}
+            return {title: 'Mythic', value: 351}
         case 27:
-            return {title: 'Shift-Z', value: 500}
+            return {title: 'Mythic', value: 500}
         case 28:
-            return {title: 'Class 1000', value: 1000}
+            return {title: 'Legendary', value: 1000}
         case 29:
-            return {title: 'Class 3000', value: 3000}
+            return {title: 'Demigod', value: 3000}
         case 30:
         default:
-            return {title: 'Class 5000', value: 5000}
+            return {title: 'Godly', value: 5000}
     }
 }
 
