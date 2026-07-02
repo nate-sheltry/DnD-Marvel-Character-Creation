@@ -146,9 +146,9 @@ function updateSecondStats(){
         +parseInt(conAttribute.value)*2
     )
     magicPoints.textContent = (
-        Math.floor(parseInt(intAttribute.value)/2)
-        +Math.floor((parseInt(wisAttribute.value)
-        +parseInt(chaAttribute.value))/4)
+        Math.floor(parseInt(intAttribute.value)/3)
+        +Math.floor(parseInt(wisAttribute.value)/2)
+        +Math.floor(parseInt(chaAttribute.value)/4)
     )
 }
 
@@ -343,7 +343,7 @@ secStatCon.children[1].addEventListener("pointerover", (e)=>{
     div.className = "tooltip"
     div.innerHTML = `<p>Tooltip</p>`
     +`<p>Spell Points are calculated as follows:<br>`
-    +`<span class="tooltip-font">Intelligence/2 + (Wisdom + Charisma)/4</span></p>`
+    +`<span class="tooltip-font">Wisdom/2 + Intelligence/3 + Charisma/4</span></p>`
     document.querySelector(".app").appendChild(div)
     div.addEventListener("pointerleave", (e)=>{
         e.target.remove()
